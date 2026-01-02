@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 function Users(){
+
     const [users, setUsers] = useState([]);
+    useEffect(() =>{
+        setUsers([
+            {id:1, name: "ALI"},
+            {id:2, name: "Yussef"}
+        ]);
+    }, []); 
     return <>
-     <ul>
-        <li>Ali</li>
-        <li>Yussef</li>
-        <li>Abbas</li>
-        <li>Acheikh</li>
-        <li>Abakar</li>
-     </ul>
+        <h1>Hello dans la page Users</h1>
+        <ul>
+            {users.map((user)=>(
+                <li key={user.id}>{user.name}</li>
+            ))}
+        </ul>
     </>
 }
 
